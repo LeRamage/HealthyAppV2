@@ -40,7 +40,6 @@ module.exports = function(passport){
     
 
     router.post('/signup', passport.authenticate('signup', (req, res) =>{
-        console.log('user : '+req.user)
         res.redirect('/home')
     }))
 

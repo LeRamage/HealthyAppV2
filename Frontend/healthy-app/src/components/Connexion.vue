@@ -66,7 +66,6 @@ export default {
                 this.emptyPassword = false
                 this.badPassword = false
                 this.badPseudo = false
-                console.log(this.$app.isConnected)
 
                 if(res.data === true){
                     this.$router.push('home')
