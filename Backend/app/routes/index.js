@@ -39,9 +39,16 @@ module.exports = function(passport){
     })
     
 
-    router.post('/signup', passport.authenticate('signup', (req, res) =>{
-        res.redirect('/home')
-    }))
+    router.post('/signup', (req, res, nxt) =>{
+        passport.authenticate('signup',(err, newUser, info) =>{
+            let message = req.flash('message')
+            console.log(message)
+            if(err) { return nxt(err) }
+            return res.send(message)
+        })(req,res,nxt)
+    })
+
+
 
     return router
 }

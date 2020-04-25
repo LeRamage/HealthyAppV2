@@ -30,7 +30,7 @@ module.exports = function(passport){
                                     throw err;
                                 }
                                 console.log("L'utilisateur à bien été enregistré")
-                                return done(null, newUser)
+                                return done(null, newUser,req.flash('message','Enregistrement réussi'))
                             })
                         }
                     })

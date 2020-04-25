@@ -30,7 +30,7 @@
                     <md-card-actions>
                         <md-button class="md-primary" @click="login">Connexion</md-button>
                     </md-card-actions>
-
+                    
                 </md-card-content>
             </md-card>
         </form>
@@ -61,12 +61,12 @@ export default {
                 password: this.user.password
             }
 
-            DataService.connect(data).then(res => {
-                this.emptyPseudo = false
-                this.emptyPassword = false
-                this.badPassword = false
-                this.badPseudo = false
+            this.emptyPseudo = false
+            this.emptyPassword = false
+            this.badPassword = false
+            this.badPseudo = false
 
+            DataService.connect(data).then(res => {
                 if(res.data === true){
                     this.$router.push('home')
                 }else if(res.data == 'Utilisateur non trouvé'){
